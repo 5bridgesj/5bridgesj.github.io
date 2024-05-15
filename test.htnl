@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Character Info</title>
+<style>
+  #character-info {
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+<select id="character-select" onchange="showCharacterInfo()">
+  <option value="">Select a character</option>
+  <option value="mario">Mario</option>
+  <option value="luigi">Luigi</option>
+  <option value="peach">Princess Peach</option>
+</select>
+
+<div id="character-info">
+  <h2 id="character-name"></h2>
+  <p id="character-description"></p>
+  <!-- Add more info as needed -->
+</div>
+
+<script>
+function showCharacterInfo() {
+  var select = document.getElementById("character-select");
+  var selectedCharacter = select.options[select.selectedIndex].value;
+  var characterName = document.getElementById("character-name");
+  var characterDescription = document.getElementById("character-description");
+
+  if (selectedCharacter === "") {
+    document.getElementById("character-info").style.display = "none";
+  } else {
+    document.getElementById("character-info").style.display = "block";
+    if (selectedCharacter === "mario") {
+      characterName.innerText = "Mario";
+      characterDescription.innerText = "Mario is a plumber and the main character of the Mario series, created by Nintendo.";
+    } else if (selectedCharacter === "luigi") {
+      characterName.innerText = "Luigi";
+      characterDescription.innerText = "Luigi is Mario's younger brother and often accompanies him on adventures.";
+    } else if (selectedCharacter === "peach") {
+      characterName.innerText = "Princess Peach";
+      characterDescription.innerText = "Princess Peach is the ruler of the Mushroom Kingdom and often gets kidnapped by Bowser.";
+    }
+    // Add more cases for other characters
+  }
+}
+</script>
+
+</body>
+</html>
